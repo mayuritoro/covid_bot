@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Covid-Chatbot</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script> -->
+</head>
+    <script >
+        var know={};
+        function talk(){
+            var user= document.getElementById('userBox').value;
+            // document.getElementById('chatLog').innerHTML +='cant'+'<br>';
+            document.getElementById('chatLog').innerHTML += user+'<br>';
+
+        }
+    </script>
+<body>
+    <p id="chatLog">
+        ------CHAT--------   
+        <br>
+    </p>
+    <form method = "post">
+        {% csrf_token %}
+        <input name ='input_1' id="userBox" type="text"  onkeydown="if (event.keyCode ==13){talk()}"}><br>
+        {% for i in reply %}
+            <p>{{ i }}<br></p>
+        {% endfor %}
+    </form>
+</body>
+</html>
